@@ -14,7 +14,7 @@ async function postTweet(message) {
     /* const legislaturePercentage = await getPercentage('2023-12-10',1460) */
     const timeBar = await getTimeBar(consumedPercentage);
     
-    const messageComposed = `Quedan ${notConsumedDays} días para la legislatura de Javier. \n\n ${timeBar}`
+    const messageComposed = `Quedan ${notConsumedDays} días para la legislatura de Javier Milei. \n\n ${timeBar}`
 
     console.log(messageComposed)
     try {
