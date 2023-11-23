@@ -14,14 +14,14 @@ async function postTweet(message) {
     /* const legislaturePercentage = await getPercentage('2023-12-10',1460) */
     const timeBar = await getTimeBar(consumedPercentage);
     
-    const messageComposed = `Quedan ${notConsumedDays} días para la legislatura de Milei. \n\n ${timeBar}`
+    const messageComposed = `Quedan ${notConsumedDays} días para la legislatura de Javier. \n\n ${timeBar}`
 
     console.log(messageComposed)
     try {
-        const tweet = await twitterClient.v2.tweet(messageComposed);
-        console.log('Tweeted:', tweet);
+        return await twitterClient.v2.tweet(messageComposed);
     } catch (error) {
         console.error('Error:', error);
+        return null
     }
 }
 
@@ -49,5 +49,7 @@ async function getTimeBar(percentage){
     return `${timeBar.join('')}`
     
 }
-postTweet('Días que quedan para la legislatura de Milei:');
+
+
+module.exports = {postTweet}
 /* ▓▓▓▓▓▓░░░░░░░░░░░░░░░░░░░ */
