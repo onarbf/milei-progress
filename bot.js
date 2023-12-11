@@ -14,7 +14,8 @@ async function postTweet(message) {
     /* const legislaturePercentage =  */
     const timeBar = await getTimeBar(consumedPercentage);
     
-    const messageComposed = `La legislatura de @JMilei está completa al ${consumedPercentage}% (2 días). \n\n ${timeBar}`
+    const messageComposed = `Día ${consumedDays} de la legislatura de @JMilei.
+    \n\nEstá completa al ${consumedPercentage}%. \n\n ${timeBar}`
 
     console.log(messageComposed)
     try {
