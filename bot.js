@@ -10,11 +10,11 @@ const twitterClient = new TwitterApi({
 
 
 async function postTweet(message) {
-    const {consumedPercentage,notConsumedDays} = await getPercentage('2023-11-19',22)
-    /* const legislaturePercentage = await getPercentage('2023-12-10',1460) */
+    const {consumedDays, consumedPercentage, notConsumedDays} = await getPercentage('2023-12-10',1460)
+    /* const legislaturePercentage =  */
     const timeBar = await getTimeBar(consumedPercentage);
     
-    const messageComposed = `Quedan ${notConsumedDays} días para la legislatura de Javier Milei. \n\n ${timeBar}`
+    const messageComposed = `La legislatura de Javier Milei está completa al ${consumedPercentage}%.\n\n Lleva ${consumedDays} días y le quedan ${notConsumedDays}. \n\n ${timeBar}`
 
     console.log(messageComposed)
     try {
@@ -39,7 +39,7 @@ async function getPercentage(initialDate,totalDays){
 }
 
 async function getTimeBar(percentage){
-    const timeBarSize = 4;
+    const timeBarSize = 1;
     const timeBar = new Array(100/timeBarSize).fill('░');
     const percentageConsumed = Math.floor(percentage/timeBarSize);
     console.log(percentageConsumed)
